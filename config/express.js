@@ -1,24 +1,20 @@
-// config/express.js
-
 var express = require('express');
 var app = express();
-var home = require('./app/routes/home');
+var home = require('../app/routes/home');
 
 module.exports = function() {
-  var app = express();
-
-  // variávil de ambiente
+  // variável de ambiente
   app.set('port', 3000);
 
-  //middleware
+  // middleware
   app.use(express.static('./public'));
 
-  // abaixo do middeware express.static
+  // abaixo do middleware express.static
   app.set('view engine', 'ejs');
   app.set('views','./app/views');
 
   // abaixo da configuração do último middleware
-  home(app);
+  home(app); // Passando o app para o módulo home
 
   return app;
 };
