@@ -3,6 +3,8 @@
 var express = require('express');
 var app = express();
 var load = require('express-load');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
 module.exports = function() {
   // variável de ambiente
@@ -10,6 +12,9 @@ module.exports = function() {
 
   // middleware
   app.use(express.static('./public'));
+  app.use(bodyParser.urlencoded({extended: true}));
+  app.use(bodyParser.json());
+  app.use(methodOverride());
 
   // abaixo do middleware express.static
   app.set('view engine', 'ejs');
@@ -23,4 +28,3 @@ module.exports = function() {
 
   return app;
 };
-
