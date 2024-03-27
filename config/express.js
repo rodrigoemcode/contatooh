@@ -1,6 +1,8 @@
+//config/express.js
+
 var express = require('express');
 var app = express();
-var home = require('../app/routes/home');
+var load = require('express-load');
 
 module.exports = function() {
   // variável de ambiente
@@ -11,10 +13,14 @@ module.exports = function() {
 
   // abaixo do middleware express.static
   app.set('view engine', 'ejs');
-  app.set('views','./app/views');
+  app.set('views', './app/views');
 
   // abaixo da configuração do último middleware
-  home(app); // Passando o app para o módulo home
+  load('models', {cwd: 'app'})
+    .then('controllers')
+    .then('routes')
+    .into(app);
 
   return app;
 };
+
