@@ -1,0 +1,21 @@
+{
+  "name": "contatooh",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "rodrigoemcode <rodrigosilva.emcode@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/rodrigoemcode/contatooh",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.8.3"
+  }
+}
