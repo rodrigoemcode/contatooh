@@ -1,3 +1,12 @@
 // public/js/main.js
 
-angular.module('contatooh', []);
+const { Template } = require("ejs");
+
+angular.module('contatooh', ['ngRoute'])
+    .config(function($routeProvider) {
+
+        $routeProvider.when('/contatos/:contatoId', {
+            templateUrl: 'partials/contatos.html',
+            controller: 'ContatosController'
+        });
+    });
