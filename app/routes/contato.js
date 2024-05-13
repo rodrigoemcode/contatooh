@@ -6,3 +6,4 @@ module.exports = function(app) {
   app.get('/contatos', controllers.listaContatos);
   app.get('/contatos/:id', controllers.obtemContato);
 };
+

@@ -8,3 +8,4 @@ angular.module('contatooh').controller('ContatosController',
       $scope.total++;
     };
 });
+

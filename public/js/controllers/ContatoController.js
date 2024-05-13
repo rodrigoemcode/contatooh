@@ -5,3 +5,4 @@ angular.module('contatooh').controller('ContatoController',
 
         console.log($routeParams.contatoID);
     });
+
