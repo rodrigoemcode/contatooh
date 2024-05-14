@@ -15,11 +15,11 @@
       <th>E-mail</th>
       <th class="text-center">Ação</th>
     </tr>
-    <tr>
+    <tr ng-repeat="contato in contatos">
       <td>
-        <a>Contato</a>
+        <a>{{contato.nome}}</a>
       </td>
-      <td>cont@empresa.com.br</td>
+      <td>{{contato.email}}</td>
       <td class="text-center">
         <button class="btn btn-warning">
           Remover
