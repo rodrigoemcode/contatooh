@@ -2,6 +2,8 @@
 
 angular.module("contatooh").controller("ContatosController", function ($scope) {
   //  código  omitido
+  $scope.filtro = '';
+  
   $scope.contatos = [
     {
       _id: 1,
