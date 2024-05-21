@@ -1,16 +1,23 @@
 // public/js/controllers/ContatosController.js
 
-angular.module("contatooh").controller("ContatosController", function ($scope, $http) {
+angular.module("contatooh").controller("ContatosController", function ($resource, $scope) {
+
   $scope.contatos = [];
+
   $scope.filtro = '';
 
-  // Fetch contacts from server
-  $http.get('/contatos')
-    .then(function(response) {
-      $scope.contatos = response.data;
-    })
-    .catch(function(error) {
-      console.log("Não foi possível obter a lista de contatos");
-      console.log(error);
-    });
+  var Contato = $resource('/contatos');
+
+  function buscaContatos() {
+    Contato.query(
+      function(contatos) {
+        $scope.contatos = contatos;
+      },
+      function(erro) {
+        console.log("Não foi possível obter a lista de contatos");
+        console.log(erro);
+      }
+    );
+  }
+  buscaContatos();
 });
