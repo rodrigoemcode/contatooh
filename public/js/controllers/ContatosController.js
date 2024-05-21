@@ -1,6 +1,7 @@
 //  public/js/controllers/ContatosController.js
 
-angular.module("contatooh").controller("ContatosController", function ($scope) {
+angular.module("contatooh").controller("ContatosController", 
+  function ($scope, $http) {
   //  código  omitido
   $scope.filtro = '';
   
