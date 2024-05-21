@@ -1,4 +1,4 @@
-angular.module('contatooh').controller('ContatoController', function($scope, $routeParams, $http) {
+angular.module('contatooh').controller('ContatoController', function($scope, $routeParams) {
     console.log($routeParams.contatoId);
 });
 
