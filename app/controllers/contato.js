@@ -1,21 +1,27 @@
+//  contatooh/app/controllers/contato.js
 // app/controllers/contato.js
-var contatos = [
-  {_id: 1, nome: 'Contato Exemplo 1', email: 'cont1@empresa.com.br'},
-  {_id: 2, nome: 'Contato Exemplo 2', email: 'cont2@empresa.com.br'},
-  {_id: 3, nome: 'Contato Exemplo 3', email: 'cont3@empresa.com.br'}
+
+let contatos = [
+  { _id: 1, nome: 'Contato Exemplo 1' },
+  { _id: 2, nome: 'Contato Exemplo 2' }
 ];
 
-var controller = {};
+const controller = {};
 
-controller.listaContatos = function(req, res) {
+controller.listaTodos = function(req, res) {
   res.json(contatos);
 };
 
-controller.obtemContato = function(req, res) {
-  var idContato = req.params.id;
-  var contato = contatos.find(function(contato) {
-    return contato._id == idContato;
-  });
+controller.salvaContato = function(req, res) {
+  const novoContato = req.body;
+  novoContato._id = contatos.length + 1;
+  contatos.push(novoContato);
+  res.status(201).json(novoContato);
+};
+
+controller.obtenContato = function(req, res) {
+  const idContato = parseInt(req.params.id);
+  const contato = contatos.find(contato => contato._id === idContato);
   if (contato) {
     res.json(contato);
   } else {
@@ -23,4 +29,11 @@ controller.obtemContato = function(req, res) {
   }
 };
 
+controller.removeContato = function(req, res) {
+  const idContato = parseInt(req.params.id);
+  contatos = contatos.filter(contato => contato._id !== idContato);
+  res.status(204).end();
+};
+
 module.exports = controller;
+
