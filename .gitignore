@@ -2,3 +2,5 @@ node_modules
 jquery
 bootstrap
 angular-resource
+angular-route
+angular
