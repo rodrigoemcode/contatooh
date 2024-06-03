@@ -1,30 +1,37 @@
-<!-- public/partials/contatos.html -->
-<div class="jumbotron">
-  <h1 class="text-center">Bem-vindo ao Contatooh</h1>
-</div>
-<p ng-show="mensagem.texto">{{mensagem.texto}}</p>
-<button class="btn btn-primary" ng-click="incrementa()">Novo</button>
-<input ng-model="filtro" type="search" placeholder="parte do nome">
+<!-- partials/contatos.html -->
+<div class="container mt-4">
+  <div class="jumbotron mb-4">
+    <h1 class="text-center">Contato</h1>
+  </div>
 
-<p ng-show="contatos.length">Contatos cadastrados: {{contatos.length}}</p>
-<p class="text-info" ng-hide="contatos.length">Não há contatos cadastrados</p>
+  <p ng-show="mensagem.texto" class="alert alert-info mb-4">
+    {{mensagem.texto}}
+  </p>
 
-<div class="table-responsive">
-  <table class="table table-hover">
-    <tr>
-      <th>Nome</th>
-      <th>E-mail</th>
-      <th class="text-center">Ação</th>
-    </tr>
-    <tr ng-repeat="contato in contatos | filter: filtro">
-      <td>
-        <a>{{contato.nome}}</a>
-      </td>
-      <td>{{contato.email}}</td>
-      <td class="text-center">
-        <button ng-click="remove(contato)" class="btn btn-warning">Remover</button>
-      </td>
-    </tr>
-  </table>
+  <form>
+    <div class="form-group mb-4">
+      <label for="nome"><strong>Nome Completo</strong></label>
+      <input type="text" class="form-control" id="nome" name="nome" required ng-model="contato.nome">
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="email"><strong>Email</strong></label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><strong>@</strong></span>
+        </div>
+        <input type="email" class="form-control" id="email" placeholder="email@exemplo.com" name="email" ng-model="contato.email" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary mr-2" ng-click="salvar()">Salvar</button>
+      <a href="#/" class="btn btn-secondary">Voltar</a>
+    </div>
+  </form>
 </div>
+
+
+
+
 
