@@ -1,7 +1,7 @@
-<!-- partials/contatos.html -->
+<!-- public/partials/contatos.html -->
 <div class="container mt-4">
   <div class="jumbotron mb-4">
-    <h1 class="text-center">Contato</h1>
+    <h1 class="text-center">Bem-vindo ao Contatooh</h1>
   </div>
 
   <p ng-show="mensagem.texto" class="alert alert-info mb-4">
@@ -10,15 +10,15 @@
 
   <form>
     <div class="form-group mb-4">
-      <label for="nome"><strong>Nome Completo</strong></label>
+      <label for="nome" class="font-weight-bold">Nome Completo</label>
       <input type="text" class="form-control" id="nome" name="nome" required ng-model="contato.nome">
     </div>
 
     <div class="form-group mb-4">
-      <label for="email"><strong>Email</strong></label>
+      <label for="email" class="font-weight-bold">Email</label>
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text"><strong>@</strong></span>
+          <span class="input-group-text">@</span>
         </div>
         <input type="email" class="form-control" id="email" placeholder="email@exemplo.com" name="email" ng-model="contato.email" required>
       </div>
@@ -29,7 +29,18 @@
       <a href="#/" class="btn btn-secondary">Voltar</a>
     </div>
   </form>
+
+  <!-- Lista de contatos com links dinâmicos -->
+  <div class="mt-4">
+    <h2>Lista de Contatos</h2>
+    <ul>
+      <li ng-repeat="contato in contatos">
+        <a ng-href="#/contato/{{contato._id}}">{{contato.nome}}</a>
+      </li>
+    </ul>
+  </div>
 </div>
+
 
 
 

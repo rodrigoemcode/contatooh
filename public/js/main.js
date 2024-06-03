@@ -11,3 +11,8 @@ app.config(function($routeProvider) {
             redirectTo: '/contatos'
         });
 });
+
+$routeProvider.when('/contato/:contatoID', {
+    templateUrl: 'partials/contato.html',
+    controller: 'ContatoController'
+});
